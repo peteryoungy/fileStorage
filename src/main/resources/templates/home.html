@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+    <title>Home</title>
+</head>
+
+<body class="p-3 mb-2 bg-light text-black">
+<div class="container">
+    <div id="logoutDiv">
+        <form action="#" th:action="@{/logout}" method="POST">
+            <button id="logout" type="submit" class="btn btn-secondary float-right">Logout</button>
+        </form>
+    </div>
+
+    <div id="contentDiv" style="clear: right;">
+        <nav style="clear: right;">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-files-tab" data-toggle="tab" href="#nav-files" role="tab" aria-controls="nav-files" aria-selected="true">Files</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
+                <form action="#" enctype="multipart/form-data" th:action="@{/home/fileupload}" method="POST">
+                    <!-- att: upload file-->
+                    <div class="container">
+                        <div class="row" style="margin: 1em;">
+                            <div class="col-sm-2">
+                                <label for="fileUpload">Upload a New File:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control-file" id="fileUpload" name="uploadedFile">
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" class="btn btn-dark">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="alert alert-success fill-parent" th:if="${param.opok}">
+                    <span id="success-message" th:text="${param.opmsg}">Success Message</span>
+                </div>
+                <div class="alert alert-danger fill-parent" th:if="${param.opnotok}">
+                    <span id="error-message" th:text="${param.opmsg}">Error Message</span>
+                </div>
+
+                <div  th:if="${param.opdlok}">
+                    <span id="download-message" th:text="${param.opmsg}">Error Message</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped" id="fileTable">
+                        <thead>
+                        <tr>
+                            <th style="width: 20%" scope="col"></th>
+                            <th style="width: 80%" scope="col">File Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--                                att: view and download file -->
+                        <tr th:each="file:${fileList}">
+                            <td>
+                                <a th:href="@{'home/files/download/' + ${file.fileName}}" target="_blank" class="btn btn-success">View</a>
+                                <a  class="btn btn-danger" th:href="@{'/home/file/delete/'+${file.fileName}}">Delete</a>
+                            </td>
+                            <th scope="row" th:text="${file.fileName}">ExampleFile.txt</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/jquery-slim.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+
+</body>
+</html>
