@@ -11,7 +11,7 @@
 </head>
 
 <body class="p-3 mb-2 bg-light text-black">
-<div class="container">
+<div class="container" style="position: relative">
     <h1 style="font-weight: bolder"> File Backup System</h1>
     <div id="logoutDiv" style="top:0px; left:90%">
         <form action="#" th:action="@{/logout}" method="POST">
@@ -31,11 +31,28 @@
 <!--        </nav>-->
 <!--        <h1 style="font-weight: bolder"> File Backup System</h1>-->
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
+            <div class="tab-pane fade show active"
+                 id="nav-files"
+                 role="tabpanel"
+                 aria-labelledby="nav-files-tab">
+                <div id="contact-info">
+                    This is the final project of ELEN 6770 in Columbia University.<br>
+                    Author: <br>
+                    Yang Yu(yy3102@columbia.edu)<br>
+                    Wenxiang Zhou(wz2542@columbia.edu)<br>
+                    HomePage:
+                    <label>
+                        <a href="https://github.com/peteryoungy/elen6770_final_proj">
+                            Homepage
+                        </a>
+                    </label>
+
+
+                </div>
                 <form action="#" enctype="multipart/form-data" th:action="@{/home/fileupload}" method="POST">
                     <!-- att: upload file-->
                     <div class="container">
-                        <div class="row" style="margin: 1em;">
+                        <div class="row" style="margin: 1em">
                             <div class="col-sm-2">
                                 <label for="fileUpload"
                                 style="font-weight: bolder;margin-left: 0px">
@@ -47,13 +64,12 @@
                                        class="form-control-file"
                                        id="fileUpload"
                                        name="uploadedFile"
-                                       style="font-weight: bolder"
-                                >
+                                       style="font-weight: bolder">
                             </div>
                             <div class="col-sm-4">
                                 <button type="submit"
                                         class="btn btn-dark"
-                                style="background-color: #4056a1">Upload</button>
+                                style="background-color: #4056a1;">Upload</button>
                             </div>
                         </div>
                     </div>
@@ -99,21 +115,6 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
-
-                <div id="contact-info" style="position: absolute">
-                    This is the final project of ELEN 6770 in Columbia University.<br>
-                    Author: <br>
-                    Yang Yu(yy3102@columbia.edu)<br>
-                    Wenxiang Zhou(wz2542@columbia.edu)<br>
-                    HomePage:
-                    <label>
-                        <a href="https://github.com/peteryoungy/elen6770_final_proj">
-                            Homepage
-                        </a>
-                    </label>
-
-
                 </div>
 
 
