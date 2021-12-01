@@ -1,10 +1,15 @@
 package com.peteryu.filestorage.model;
 
+import com.peteryu.filestorage.annotation.ValidPassword;
+
 public class User {
     private Integer userId;
     private String userName;
     private String salt;
+
+    @ValidPassword
     private String passWord;
+
     private String firstName;
     private String lastName;
 

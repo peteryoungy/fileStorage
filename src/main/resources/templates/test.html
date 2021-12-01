@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Poppins&display=swap" rel="stylesheet">-->
+
+    <link rel="stylesheet"
+          href="../static/css/home.css" th:href="@{/css/home.css}">
+    <title>Home</title>
+</head>
+
+<body>
+<form id="main-body">
+    <!--    att: log out button -->
+    <div id="logoutDiv">
+        <form action="#" th:action="@{/logout}" method="POST">
+            <button id="logout" type="submit" class="btn btn-secondary float-right">Logout</button>
+        </form>
+    </div>
+
+    <div>
+        <!--    att: title-->
+        <h1> File Backup system</h1>
+
+        <!--    att: uplaod file-->
+        <form action="#" enctype="multipart/form-data"
+              th:action="@{/home/fileupload}" method="POST"
+              id="upload-form">
+
+            <div class="upload-item">
+                <label for="fileUpload">Upload a New File:</label>
+            </div>
+            <div class="upload-item">
+                <input type="file" class="form-control-file" id="fileUpload" name="uploadedFile">
+            </div>
+            <div class="upload-item">
+                <button type="submit" id="upload-button">Upload</button>
+            </div>
+        </form>
+
+        <!--        att: error or success msg-->
+        <div class="alert alert-success fill-parent" th:if="${param.opok}">
+            <span id="success-message" th:text="${param.opmsg}">
+                Success Message
+            </span>
+        </div>
+        <div class="alert alert-danger fill-parent" th:if="${param.opnotok}">
+            <span id="error-message" th:text="${param.opmsg}">
+                Error Message
+            </span>
+        </div>
+
+        <!--        att: content menu -->
+        <div id="table-view">
+            <table class="table table-striped" id="fileTable">
+                <thead>
+                <tr>
+                    <th style="width: 20%" scope="col"></th>
+                    <th style="width: 80%" scope="col">File Name</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="file:${fileList}">
+                    <td>
+                        <a th:href="@{'home/files/download/' + ${file.fileName}}" target="_blank" class="btn btn-success">View</a>
+                        <a  class="btn btn-danger" th:href="@{'/home/file/delete/'+${file.fileName}}">Delete</a>
+                    </td>
+                    <th scope="row" th:text="${file.fileName}">ExampleFile.txt</th>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="contact-info">
+            This is the final project of ELEN 6770 in Columbia University.<br>
+            Author: <br>
+            Yang Yu(yy3102@columbia.edu)<br>
+            Wenxiang Zhou(wz2542@columbia.edu)
+        </div>
+
+    </div>
+</form>
+
+
+
+
+</body>
+</html>

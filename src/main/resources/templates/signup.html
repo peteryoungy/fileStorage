@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Poppins&display=swap" rel="stylesheet">-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
 
     <title>Sign Up</title>
 </head>
-<body class="p-3 mb-2 bg-light text-black">
-<div class="container justify-content-center w-50 p-3" style="background-color: #eeeeee; margin-top: 5em;">
-    <div class="form-group">
-        <label><a th:href="@{/login}">Login</a></label>
+<body>
+
+<form action="#" th:object="${User}" th:action="@{/signup}" method="POST">
+    <label><a th:href="@{/login}" id="former-login">Log in</a></label>
+    <h id="title">Join us now！</h>
+    <div class="report-msg" id="singup-ok-msg"  th:if="${param.isSuccess}" >
+        You successfully signed up! Please continue to the <a th:href="@{/login}" id="latter-login">login</a> page.
     </div>
 
-    <h1 class="display-5">Sign Up</h1>
-    <form action="#" th:object="${User}" th:action="@{/signup}" method="POST">
-        <div id="singup-ok-msg" class="alert alert-success" th:if="${isSuccess}" >
-            You successfully signed up! Please continue to the <a th:href="@{/login}">login</a> page.
+    <div  class="report-msg" th:if="${isFailure}">
+        <p id="signup-failure-msg" th:text="${signupMsg}" >Sign up failure msg </p>
+    </div>
+
+    <div class = "line">
+
+        <div class="line-ele">
+            <label for="firstname">First Name</label>
+            <input type = "text" id = "firstname" th:field="*{firstName}"
+                   placeholder="Enter First Name">
         </div>
-        <div class="alert alert-danger" th:if="${isFailure}" >
-            <span th:text="${signupMsg}">Sign up failure msg</span>
+
+
+        <div class="line-ele">
+            <label for="lastname">Last Name</label>
+            <input type = "text" id = "lastname" th:field="*{lastName}"
+                   placeholder="Enter Last Name">
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputFirstName">First Name</label>
-                <input type="input" name="firstName" class="form-control" id="inputFirstName" th:field="*{firstName}" placeholder="Enter First Name" maxlength="20" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputLastName">Last Name</label>
-                <input type="input" name="lastName" class="form-control" id="inputLastName" th:field="*{lastName}"  placeholder="Enter Last Name" maxlength="20" required>
-            </div>
+
+    </div>
+
+    <div class="line">
+        <div class="line-ele">
+            <label for="username"> User Name</label>
+            <input type = "text" id = "username" th:field="*{userName}"
+                   placeholder="Input your name here">
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputUsername">Username</label>
-                <input type="text"  name="username" class="form-control" id="inputUsername" th:field="*{userName}"   placeholder="Enter Username" maxlength="20" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword">Password</label>
-                <input type="password" name="password" class="form-control" id="inputPassword" th:field="*{passWord}" placeholder="Enter Password" maxlength="20" required>
-            </div>
+
+        <div class="line-ele">
+            <label for="password"> Password</label>
+            <input type = "password" id = "password" th:field="*{passWord}"
+                   placeholder="Your password here">
         </div>
-        <button id="signupBtn" type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
-</div>
+    </div>
+
+    <!--    <label for="confrm-password">Confirm Password</label>-->
+    <!--    <input type="password" id="confrm-password"-->
+    <!--           placeholder="Confirm password here">-->
+
+    <div>
+        <p id="pwd-err-msg" th:text="${pwdErrMsg}">error message</p>
+    </div>
+
+    <input type="submit" value="SIGN UP"/>
+</form>
+
 </body>
 </html>

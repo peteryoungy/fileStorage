@@ -44,4 +44,17 @@ public class UserService {
 
         return userMapper.getUser(userName);
     }
+
+    public String PasswordValid(User user){
+        String password = user.getPassWord();
+
+        if(password.length() == 0){
+            return "password cannot be null";
+        }
+        if(password.length() < 8){
+            return "password must be longer than 8";
+        }
+
+        return "";
+    }
 }

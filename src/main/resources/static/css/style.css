@@ -1,0 +1,124 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    /*background: linear-gradient(*/
+    /*    45deg,*/
+    /*    #8b51ff,*/
+    /*    #7a37ff*/
+    /*);*/
+    /*background-color: 	#FDF5E6;*/
+    background-color: #F5F5F5;
+
+}
+form{
+    background-color: #ffffff;
+    width: 600px;
+    padding: 50px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 30px rgba(0,0,0,0.15);
+
+}
+label{
+    font-weight: 500;
+    color: #101030;
+}
+input{
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px;
+    border-radius: 5px;
+    outline: None;
+    color: #101010;
+    margin-bottom: 15px;
+}
+/*#password{*/
+/*    margin-bottom: 30px;*/
+/*}*/
+input[type="password"],input[type="text"],input[type="email"]{
+    border: 2px solid #c2c2c2;
+}
+input[type="submit"]{
+
+    /*background-color: #7f3fff;*/
+    background-color: #4056a1;
+    border: None;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+a[id = "former-login"]{
+    /*font-size: 14px;*/
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    color:#4056a1;
+
+}
+
+
+div[id="singup-ok-msg"]{
+    /*background-color: #3ae374;*/
+    /*color: #ffffff;*/
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: #3ae374;
+    font-weight: bolder;
+
+}
+p[id="signup-failure-msg"]{
+    /*background-color: #ff4d4d;*/
+    /*color: #ffffff;*/
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 5px 10px;
+    color: #ff4d4d;
+    font-weight: bolder;
+
+}
+p[id="pwd-err-msg"]{
+    /*background-color: #ff4d4d;*/
+    /*color: #ffffff;*/
+    font-size: 15px;
+    margin: 0px 0;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #ff4d4d;
+    font-weight: bolder;
+
+}
+div[class="line"]{
+    display: table;
+}
+div[class="line-ele"]{
+    display: table-cell;
+    padding: 10px;
+}
+h[id="title"]{
+    display: block;
+    font-weight: bolder;
+    font-size: 50px;
+    /*color: #6AA583;*/
+    margin-bottom: 20px;
+    /*font-family: 'Lora', serif;*/
+}
