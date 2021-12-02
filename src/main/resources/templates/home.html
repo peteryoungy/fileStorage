@@ -35,7 +35,7 @@
       <!-- <h1 style="font-weight: bolder">File Backup System</h1> -->
       <div id="logoutDiv" style="top: 0px; left: 90%">
         <form action="#" th:action="@{/logout}" method="POST">
-            <!-- old version of log out button -->
+          <!-- old version of log out button -->
           <!-- <button
             id="logout"
             type="submit"
@@ -43,7 +43,18 @@
           >
             Logout
           </button> -->
-          <button class="btn btn-secondary ui float-right right labeled icon youtube button">
+          <button
+            class="
+              btn btn-secondary
+              ui
+              float-right
+              right
+              labeled
+              icon
+              youtube
+              button
+            "
+          >
             <i class="sign-out icon"></i>
             Logout
           </button>
@@ -81,7 +92,13 @@
                 </div> -->
             <!-- project baisc info using card -->
             <div class="ui segment">
-              <h2 class="ui left floated header">File Backup System</h2>
+              <h2
+                class="ui ribbon label left floated header"
+                style="background-color: #4056a1; color: white"
+              >
+                File Backup System
+              </h2>
+              <br />
               <br />
               <h4 class="ui horizontal divider header">
                 <i class="tag icon"></i>
@@ -91,132 +108,156 @@
                 This is the final project of ELEN 6770 in Columbia University.
               </div>
 
-              <br />
-            <h4 class="ui horizontal divider header">
-              <i class="cloud upload icon"></i>
-              Upload files
-            </h4>
-            <form
-              action="#"
-              enctype="multipart/form-data"
-              th:action="@{/home/fileupload}"
-              method="POST"
-            >
-              <!-- att: upload file-->
-              <div class="container">
-                <div class="row" style="margin: 1em">
-                  <div class="col-sm-2">
-                    <label
-                      for="fileUpload"
-                      style="font-weight: bolder; margin-left: 0px"
-                    >
-                      Upload a New File:
-                    </label>
-                  </div>
-                  <div class="col-sm-6">
-                    <input
-                      type="file"
-                      class="form-control-file"
-                      id="fileUpload"
-                      name="uploadedFile"
-                      style="font-weight: bolder"
-                    />
-                  </div>
-                  <div class="col-sm-4">
-                    <button
+              <h4 class="ui horizontal divider header">
+                <i class="cloud upload icon"></i>
+                Upload files
+              </h4>
+              <form
+                action="#"
+                enctype="multipart/form-data"
+                th:action="@{/home/fileupload}"
+                method="POST"
+              >
+                <!-- att: upload file-->
+                <div class="container">
+                  <div class="row" style="margin: 1em">
+                    <div class="col-sm-2">
+                      <label
+                        for="fileUpload"
+                        style="font-weight: bolder; margin-left: 0px"
+                      >
+                        Upload a New File:
+                      </label>
+                    </div>
+                    <div class="col-sm-6">
+                      <input
+                        type="file"
+                        class="form-control-file"
+                        id="fileUpload"
+                        name="uploadedFile"
+                        style="font-weight: bolder"
+                      />
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- old button version for submit -->
+                      <!-- <button
                       type="submit"
                       class="btn btn-dark"
                       style="background-color: #4056a1"
                     >
                       Upload
-                    </button>
+                    </button> -->
+                      <button
+                        class="
+                          btn btn-secondary
+                          ui
+                          float-right
+                          right
+                          labeled
+                          icon
+                          button
+                        "
+                        style="background-color: #4056a1; color: white"
+                      >
+                        <i class="upload icon"></i>
+                        Upload
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
 
-            <div class="alert alert-success fill-parent" th:if="${param.opok}">
-              <span id="success-message" th:text="${param.opmsg}">
-                Success Message
-              </span>
-            </div>
-            <div
-              class="alert alert-danger fill-parent"
-              th:if="${param.opnotok}"
-            >
-              <span id="error-message" th:text="${param.opmsg}"
-                >Error Message</span
+              <div
+                class="alert alert-success fill-parent"
+                th:if="${param.opok}"
               >
-            </div>
+                <span id="success-message" th:text="${param.opmsg}">
+                  Success Message
+                </span>
+              </div>
+              <div
+                class="alert alert-danger fill-parent"
+                th:if="${param.opnotok}"
+              >
+                <span id="error-message" th:text="${param.opmsg}"
+                  >Error Message</span
+                >
+              </div>
 
-            <div class="table-responsive">
-              <table class="table table-striped" id="fileTable">
-                <thead>
-                  <tr>
-                    <th style="width: 20%" scope="col"></th>
-                    <th style="width: 80%" scope="col">File Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!--                                att: view and download file -->
-                  <tr th:each="file:${fileList}">
-                    <td>
-                      <a
-                        th:href="@{'home/files/download/' + ${file.fileName}}"
-                        target="_blank"
-                        class="btn btn-success"
-                        style="background-color: #3ae374"
-                      >
-                        View
-                      </a>
-                      <a
-                        class="btn btn-danger"
-                        th:href="@{'/home/file/delete/'+${file.fileName}}"
-                        style="background-color: #ff4d4d"
-                      >
-                        Delete
-                      </a>
-                    </td>
-                    <th scope="row" th:text="${file.fileName}">
-                      ExampleFile.txt
-                    </th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <h4 class="ui horizontal divider header">
-              <i class="user circle icon"></i>
-              Authors
-            </h4>
-            <div class="ui relaxed horizontal list">
+              <div class="table-responsive">
+                <table class="table table-striped" id="fileTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 20%" scope="col"></th>
+                      <th style="width: 80%" scope="col">File Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--                                att: view and download file -->
+                    <tr th:each="file:${fileList}">
+                      <td>
+                        <a
+                          th:href="@{'home/files/download/' + ${file.fileName}}"
+                          target="_blank"
+                          class="btn btn-success"
+                          style="background-color: #3ae374"
+                        >
+                          View
+                        </a>
+                        <a
+                          class="btn btn-danger"
+                          th:href="@{'/home/file/delete/'+${file.fileName}}"
+                          style="background-color: #ff4d4d"
+                        >
+                          Delete
+                        </a>
+                      </td>
+                      <th scope="row" th:text="${file.fileName}">
+                        ExampleFile.txt
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4 class="ui horizontal divider header">
+                <i class="user circle icon"></i>
+                Authors
+              </h4>
+              <div class="ui relaxed horizontal list">
                 <div class="item">
                   <i class="large github middle aligned icon"></i>
                   <div class="content">
-                    <a class="header" href="mailto: yy3102@columbia.edu">Yang Yu</a>
+                    <a class="header" href="mailto: yy3102@columbia.edu"
+                      >Yang Yu</a
+                    >
                     <div class="description">yy3102@columbia.edu</div>
                   </div>
                 </div>
                 <div class="item">
                   <i class="large github middle aligned icon"></i>
                   <div class="content">
-                    <a class="header" href="mailto: wz2542@columbia.edu">Wenxiang Zhou</a>
+                    <a class="header" href="mailto: wz2542@columbia.edu"
+                      >Wenxiang Zhou</a
+                    >
                     <div class="description">wz2542@columbia.edu</div>
                   </div>
                 </div>
-                <div class="item" >
-                    <a>
-                        <i class="users icon"></i>
-                        2 Members
-                      </a>
-                      <i class="github icon"></i>
-                      <label>
-                        <a href="https://github.com/peteryoungy/elen6770_final_proj">
-                          Visit our github homepage
-                        </a>
-                      </label>
+                <div class="item">
+                  <a>
+                    <i class="users icon"></i>
+                    2 Members
+                  </a>
+                  <i class="github icon"></i>
+                  <label>
+                    <a
+                      href="https://github.com/peteryoungy/elen6770_final_proj"
+                    >
+                      Visit our github homepage
+                    </a>
+                  </label>
                 </div>
               </div>
-            <!-- <div class="ui grid">
+              <!-- <div class="ui grid">
               <div class="eight wide column">
                 <div class="ui card">
                   <div class="content">
@@ -266,11 +307,9 @@
                 </div>
               </div>
             </div> -->
-            <br/>
-            
+              <br />
+            </div>
           </div>
-
-        </div>
         </div>
       </div>
     </div>
