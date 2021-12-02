@@ -196,21 +196,61 @@
                     <!--                                att: view and download file -->
                     <tr th:each="file:${fileList}">
                       <td>
-                        <a
+                        <!-- <a
                           th:href="@{'home/files/download/' + ${file.fileName}}"
                           target="_blank"
                           class="btn btn-success"
                           style="background-color: #3ae374"
                         >
                           View
-                        </a>
-                        <a
+                        </a> -->
+                        <!-- <a
                           class="btn btn-danger"
                           th:href="@{'/home/file/delete/'+${file.fileName}}"
-                          style="background-color: #ff4d4d"
+                          style="background-color: #e70c0c"
                         >
                           Delete
-                        </a>
+                        </a> -->
+                        <div class="ui grid">
+                          <div class="seven wide column">
+                            <button
+                              class="
+                                btn btn-success
+                                ui
+                                right
+                                labeled
+                                icon
+                                button
+                                green
+                                tiny
+                              "
+                              th:href="@{'home/files/download/' + ${file.fileName}}"
+                              style="color: white"
+                            >
+                              <i class="eye icon"></i>
+                              View
+                            </button>
+                          </div>
+                          <div class="seven wide column">
+                            <button
+                              class="
+                                btn btn-danger
+                                ui
+                                right
+                                labeled
+                                icon
+                                button
+                                youtube
+                                tiny
+                              "
+                              th:href="@{'/home/file/delete/'+${file.fileName}}"
+                              style="color: white"
+                            >
+                              <i class="close icon" style="color: white"></i>
+                              Delete
+                            </button>
+                          </div>
+                        </div>
                       </td>
                       <th scope="row" th:text="${file.fileName}">
                         ExampleFile.txt
