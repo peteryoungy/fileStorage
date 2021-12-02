@@ -87,11 +87,12 @@ div[id="table-view"]{
 
 }
 
-div[id="contact-info"]{
+div[id="project-info"]{
     /*background-color: #FF69B4;*/
     position: fixed;
     left:5%;
     top: 600px;
     border-radius: 8px;
+    width: 400px;
 }
 

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fomantic-ui": "^2.8.8",
+    "gulp": "^4.0.0"
+  }
+}
