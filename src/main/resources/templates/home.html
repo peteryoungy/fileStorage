@@ -213,42 +213,44 @@
                         </a> -->
                         <div class="ui grid">
                           <div class="seven wide column">
-                            <button
-                              class="
-                                btn btn-success
-                                ui
-                                right
-                                labeled
-                                icon
-                                button
-                                green
-                                tiny
-                              "
-                              th:href="@{'home/files/download/' + ${file.fileName}}"
-                              style="color: white"
-                            >
-                              <i class="eye icon"></i>
-                              View
-                            </button>
+                            <a th:href="@{'home/files/download/' + ${file.fileName}}">
+                              <button
+                                class="
+                                  btn btn-success
+                                  ui
+                                  right
+                                  labeled
+                                  icon
+                                  button
+                                  green
+                                  tiny
+                                "
+                                style="color: white"
+                              >
+                                <i class="eye icon"></i>
+                                View
+                              </button>
+                            </a>
                           </div>
                           <div class="seven wide column">
-                            <button
-                              class="
-                                btn btn-danger
-                                ui
-                                right
-                                labeled
-                                icon
-                                button
-                                youtube
-                                tiny
-                              "
-                              th:href="@{'/home/file/delete/'+${file.fileName}}"
-                              style="color: white"
-                            >
-                              <i class="close icon" style="color: white"></i>
-                              Delete
-                            </button>
+                            <a th:href="@{'/home/file/delete/'+${file.fileName}}">
+                              <button
+                                class="
+                                  btn btn-danger
+                                  ui
+                                  right
+                                  labeled
+                                  icon
+                                  button
+                                  youtube
+                                  tiny
+                                "
+                                style="color: white"
+                              >
+                                <i class="close icon" style="color: white"></i>
+                                Delete
+                              </button>
+                            </a>
                           </div>
                         </div>
                       </td>
