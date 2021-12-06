@@ -19,7 +19,7 @@ http://ec2-18-118-99-89.us-east-2.compute.amazonaws.com:8080
 ## SPECIFICATION
 
 1. Utilized Spring Boot, Spring MVC and Thymeleaf to build a Java-based web application.
-2. Employed H2 as an in-memory database, and implemented website security with Spring Security.
+2. Employed MySQL Server as an external database, and implemented website security with Spring Security.
 3. Implemented a series of automated user tests with JUnit and Selenium.
 4. Deployed the website on Amazon EC2 and exploited Amazon S3 to make source code back-up.
 
