@@ -54,6 +54,7 @@ public class FileController {
             // note: upload nothing
             if(fileName.length() == 0){
                 fileErr = FILE_NOT_SELECTED_ERR;
+                throw new Exception("the file cannot be null file");
             }
             // note: >5MB
             // att: what if the file size become bigger?
@@ -84,6 +85,7 @@ public class FileController {
             fileErr = FILE_SIZE_LIMIT_EXCEED;
         }
         catch (Exception e){
+
         }
 
 
