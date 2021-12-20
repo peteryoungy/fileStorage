@@ -59,7 +59,7 @@ public class FileController {
             // note: >5MB
             // att: what if the file size become bigger?
             if(fileSize > 5242880){
-                throw new MaxUploadSizeExceededException(fileSize);
+//                throw new MaxUploadSizeExceededException(fileSize);
 
             }
             // note: test if the file (by fileName) is already in DB
@@ -85,7 +85,10 @@ public class FileController {
             fileErr = FILE_SIZE_LIMIT_EXCEED;
         }
         catch (Exception e){
+            if(fileErr == null){
 
+                fileErr = "This file is not supported, please try another file: ";
+            }
         }
 
 
