@@ -51,17 +51,20 @@ public class FileController {
             fileName = multipartFile.getOriginalFilename();
             fileSize = multipartFile.getSize();
 
+            // content type
+            if contentType == "pdf"
             // note: upload nothing
             if(fileName.length() == 0){
                 fileErr = FILE_NOT_SELECTED_ERR;
                 throw new Exception("the file cannot be null file");
             }
+
             // note: >5MB
             // att: what if the file size become bigger?
             if(fileSize > 5242880){
-//                throw new MaxUploadSizeExceededException(fileSize);
-
+                throw new MaxUploadSizeExceededException(fileSize);
             }
+
             // note: test if the file (by fileName) is already in DB
             if(fileService.isDuplicate(fileName,userId)){
                 fileErr = FILE_DUPLICATE_ERR;
