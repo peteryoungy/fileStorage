@@ -19,7 +19,7 @@ body{
 }
 form{
     background-color: #ffffff;
-    width: 600px;
+    /*width: 600px;*/
     padding: 50px 40px;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -117,7 +117,7 @@ div[class="line-ele"]{
 h[id="title"]{
     display: block;
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 40px;
     /*color: #6AA583;*/
     margin-bottom: 20px;
     /*font-family: 'Lora', serif;*/

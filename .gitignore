@@ -1,4 +1,4 @@
-/out/
+out/
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -35,4 +35,4 @@ build/
 
 # node
 node_modules
-/out/
+

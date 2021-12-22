@@ -19,7 +19,7 @@ body{
 
 form{
     background-color: #ffffff;
-    width: 400px;
+    /*width: 400px;*/
     padding: 50px 40px;
     position: absolute;
     transform: translate(-50%, -50%);
