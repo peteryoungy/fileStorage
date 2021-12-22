@@ -28,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console/**","/login","/signup","/css/**", "/js/**","/h2/**").permitAll()
                 .anyRequest().authenticated();
 
-//        http.csrf().disable();
-//        http.headers().frameOptions().disable();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
 
         http.formLogin()
                 .loginPage("/login")

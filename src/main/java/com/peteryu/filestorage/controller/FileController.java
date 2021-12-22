@@ -51,8 +51,7 @@ public class FileController {
             fileName = multipartFile.getOriginalFilename();
             fileSize = multipartFile.getSize();
 
-            // content type
-            if contentType == "pdf"
+
             // note: upload nothing
             if(fileName.length() == 0){
                 fileErr = FILE_NOT_SELECTED_ERR;
@@ -71,6 +70,8 @@ public class FileController {
                 throw new Exception("you are not allowed to have duplicate file name");
             }
 
+            System.out.println("Ready to read");
+
             // note: read data from file to byte[]
             byte[] fileBuffer = null;
             InputStream fis = multipartFile.getInputStream();  // note: get a input stream
@@ -78,11 +79,16 @@ public class FileController {
             fis.read(fileBuffer);  // note: read file and store to byte[]
             fis.close();
 
+            System.out.println("Read finished");
+
             File newFile = new File(null, fileName, contentType, String.valueOf(fileSize), userId, fileBuffer);
-            if(fileService.addFile(newFile) < 0){
+            System.out.println("Create file object Finished");
+
+            int fileId = fileService.addFile(newFile);
+            System.out.println("Add file success");
+            if(fileId < 0){
                 fileErr = FILE_UPLOAD_FAILED_ERR;
             }
-
         }
         catch (MaxUploadSizeExceededException e){
             fileErr = FILE_SIZE_LIMIT_EXCEED;
