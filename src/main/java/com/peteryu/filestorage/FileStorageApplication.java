@@ -11,3 +11,13 @@ public class FileStorageApplication {
     }
 
 }
+
+// TODO:
+//  1. files can be stored in another place like s3, only store s3 in the database
+//  2. inversion of control is not completed deployed in this program
+
+
+// why:
+//  1.
+
+

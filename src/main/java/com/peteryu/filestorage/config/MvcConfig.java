@@ -10,8 +10,8 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
         // note: avoid the logic in getMapping, priority than getMapping?
-        registry.addViewController("/home").setViewName("home");
-        registry.addViewController("/").setViewName("home");
+//        registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/").setViewName("login");
         // registry.addViewController("/hello").setViewName("hello");
         //registry.addViewController("/login").setViewName("login");
     }

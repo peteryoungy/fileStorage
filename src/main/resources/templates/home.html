@@ -1,60 +1,27 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="https://www.thymeleaf.org"
->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-      th:href="@{/css/bootstrap.min.css}"
-      href="../static/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css"/>
     <title>Home</title>
+
     <!-- You MUST include jQuery before Fomantic -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
     <script src="/dist/semantic.min.js"></script>
+
+
   </head>
 
   <body class="p-3 mb-2 bg-light text-black">
     <div class="container" style="position: relative">
-      <!-- old version header -->
-      <!-- <h1 style="font-weight: bolder">File Backup System</h1> -->
       <div id="logoutDiv" style="top: 0px; left: 90%">
         <form action="#" th:action="@{/logout}" method="POST">
-          <!-- old version of log out button -->
-          <!-- <button
-            id="logout"
-            type="submit"
-            class="btn btn-secondary float-right"
-          >
-            Logout
-          </button> -->
-          <button
-            class="
-              btn btn-secondary
-              ui
-              float-right
-              right
-              labeled
-              icon
-              youtube
-              button
-            "
-          >
+          <button class="btn btn-secondary ui float-right right labeled icon youtube button">
             <i class="sign-out icon"></i>
             Logout
           </button>
@@ -62,40 +29,10 @@
       </div>
 
       <div id="contentDiv" style="clear: right">
-        <!--        <nav style="clear: right;">-->
-        <!--            <div class="nav nav-tabs" id="nav-tab" role="tablist">-->
-        <!--                <a class="nav-item nav-link active" id="nav-files-tab" data-toggle="tab" href="#nav-files" role="tab" aria-controls="nav-files" aria-selected="true">Files</a>-->
-        <!--            </div>-->
-        <!--        </nav>-->
-        <!--        <h1 style="font-weight: bolder"> File Backup System</h1>-->
         <div class="tab-content" id="nav-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="nav-files"
-            role="tabpanel"
-            aria-labelledby="nav-files-tab"
-          >
-            <!-- old version contact info -->
-            <!-- <div id="contact-info">
-                    This is the final project of ELEN 6770 in Columbia University.<br>
-                    Author: <br>
-                    Yang Yu(yy3102@columbia.edu)<br>
-                    Wenxiang Zhou(wz2542@columbia.edu)<br>
-                    HomePage:
-                    <label>
-                        <a href="https://github.com/peteryoungy/elen6770_final_proj">
-                            Homepage
-                        </a>
-                    </label>
-
-
-                </div> -->
-            <!-- project baisc info using card -->
+          <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
             <div class="ui segment">
-              <h2
-                class="ui ribbon label left floated header"
-                style="background-color: #4056a1; color: white"
-              >
+              <h2 class="ui ribbon label left floated header" style="background-color: #4056a1; color: white">
                 File Backup System
               </h2>
               <br />
@@ -112,81 +49,45 @@
                 <i class="cloud upload icon"></i>
                 Upload files
               </h4>
-              <form
-                action="#"
-                enctype="multipart/form-data"
-                th:action="@{/home/fileupload}"
-                method="POST"
-              >
-                <!-- att: upload file-->
+
+              <form action="#" enctype="multipart/form-data" th:action="@{/home/fileupload}" method="POST">
                 <div class="container">
                   <div class="row" style="margin: 1em">
+
                     <div class="col-sm-2">
-                      <label
-                        for="fileUpload"
-                        style="font-weight: bolder; margin-left: 0px"
-                      >
+                      <label for="fileUpload" style="font-weight: bolder; margin-left: 0px">
                         Upload a New File:
                       </label>
                     </div>
+
                     <div class="col-sm-6">
-                      <input
-                        type="file"
-                        class="form-control-file"
-                        id="fileUpload"
-                        name="uploadedFile"
-                        style="font-weight: bolder"
-                      />
+                      <input type="file" class="form-control-file" id="fileUpload" name="uploadedFile" style="font-weight: bolder"/>
                     </div>
+
                     <div class="col-sm-4">
-                      <!-- old button version for submit -->
-                      <!-- <button
-                      type="submit"
-                      class="btn btn-dark"
-                      style="background-color: #4056a1"
-                    >
-                      Upload
-                    </button> -->
-                      <button
-                        class="
-                          btn btn-secondary
-                          ui
-                          float-right
-                          right
-                          labeled
-                          icon
-                          button
-                        "
-                        style="background-color: #4056a1; color: white"
-                      >
+                      <button class="btn btn-secondary ui float-right right labeled icon button" style="background-color: #4056a1; color: white">
                         <i class="upload icon"></i>
                         Upload
                       </button>
                     </div>
+
                   </div>
                 </div>
               </form>
 
-              <div
-                class="alert alert-success fill-parent"
-                th:if="${param.opok}"
-              >
+              <div class="alert alert-success fill-parent" th:if="${param.opok}">
                 <span id="success-message" th:text="${param.opmsg}">
                   Success Message
                 </span>
               </div>
-              <div
-                class="alert alert-danger fill-parent"
-                th:if="${param.opnotok}"
-              >
-                <span id="error-message" th:text="${param.opmsg}"
-                  >Error Message</span
-                >
+              <div class="alert alert-danger fill-parent" th:if="${param.opnotok}">
+                <span id="error-message" th:text="${param.opmsg}">
+                  Error Message
+                </span>
               </div>
 
               <div class="table-responsive">
                 <table class="table table-striped" id="fileTable">
-
                   <thead>
                     <tr>
                       <th style="width: 20%" scope="col"></th>
@@ -194,40 +95,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <!--                                att: view and download file -->
                     <tr th:each="file:${fileList}">
                       <td>
-                        <!-- <a
-                          th:href="@{'home/files/download/' + ${file.fileName}}"
-                          target="_blank"
-                          class="btn btn-success"
-                          style="background-color: #3ae374"
-                        >
-                          View
-                        </a> -->
-                        <!-- <a
-                          class="btn btn-danger"
-                          th:href="@{'/home/file/delete/'+${file.fileName}}"
-                          style="background-color: #e70c0c"
-                        >
-                          Delete
-                        </a> -->
                         <div class="ui grid">
                           <div class="seven wide column">
                             <a th:href="@{'home/files/download/' + ${file.fileName}}">
-                              <button
-                                class="
-                                  btn btn-success
-                                  ui
-                                  right
-                                  labeled
-                                  icon
-                                  button
-                                  green
-                                  tiny
-                                "
-                                style="color: white"
-                              >
+                              <button class="btn btn-success ui right labeled icon button green tiny" style="color: white">
                                 <i class="eye icon"></i>
                                 View
                               </button>
@@ -235,22 +108,10 @@
                           </div>
                           <div class="seven wide column">
                             <a th:href="@{'/home/file/delete/'+${file.fileName}}">
-                              <buttonの
-                                class="
-                                  btn btn-danger
-                                  ui
-                                  right
-                                  labeled
-                                  icon
-                                  button
-                                  youtube
-                                  tiny
-                                "
-                                style="color: white"
-                              >
+                              <button class="btn btn-danger ui right labeled icon button youtube tiny" style="color: white">
                                 <i class="close icon" style="color: white"></i>
                                 Delete
-                              </buttonの>
+                              </button>
                             </a>
                           </div>
                         </div>
@@ -270,18 +131,18 @@
                 <div class="item">
                   <i class="large github middle aligned icon"></i>
                   <div class="content">
-                    <a class="header" href="mailto: yy3102@columbia.edu"
-                      >Yang Yu</a
-                    >
+                    <a class="header" href="mailto: yy3102@columbia.edu">
+                      Yang Yu
+                    </a>
                     <div class="description">yy3102@columbia.edu</div>
                   </div>
                 </div>
                 <div class="item">
                   <i class="large github middle aligned icon"></i>
                   <div class="content">
-                    <a class="header" href="mailto: wz2542@columbia.edu"
-                      >Wenxiang Zhou</a
-                    >
+                    <a class="header" href="mailto: wz2542@columbia.edu">
+                      Wenxiang Zhou
+                    </a>
                     <div class="description">wz2542@columbia.edu</div>
                   </div>
                 </div>
@@ -292,64 +153,12 @@
                   </a>
                   <i class="github icon"></i>
                   <label>
-                    <a
-                      href="https://github.com/peteryoungy/elen6770_final_proj"
-                    >
+                    <a href="https://github.com/peteryoungy/elen6770_final_proj">
                       Visit our github homepage
                     </a>
                   </label>
                 </div>
               </div>
-              <!-- <div class="ui grid">
-              <div class="eight wide column">
-                <div class="ui card">
-                  <div class="content">
-                    <div class="center aligned header">Yang Yu</div>
-                    <div class="center aligned description">
-                      <p>
-                        Yang Yu from Electrical Engineering at Columbia
-                        University
-                      </p>
-                    </div>
-                  </div>
-                  <div class="extra content">
-                    <div class="center aligned author">
-                      <img
-                        class="ui avatar image"
-                        src="https://semantic-ui.com/images/avatar/small/matt.jpg"
-                      />
-                      <a href="mailto: yy3102@columbia.edu">
-                        yy3102@columbia.edu
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="eight wide column">
-                <div class="ui card">
-                  <div class="content">
-                    <div class="center aligned header">Wenxiang Zhou</div>
-                    <div class="center aligned description">
-                      <p>
-                        Wenxiang Zhou from Electrical Engineering at Columbia
-                        University
-                      </p>
-                    </div>
-                  </div>
-                  <div class="extra content">
-                    <div class="center aligned author">
-                      <img
-                        class="ui avatar image"
-                        src="https://semantic-ui.com/images/avatar/small/elliot.jpg"
-                      />
-                      <a href="mailto: wz2542@columbia.edu">
-                        wz2542@columbia.edu
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
               <br />
             </div>
           </div>

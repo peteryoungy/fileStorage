@@ -2,6 +2,7 @@ package com.peteryu.filestorage.controller;
 
 import com.peteryu.filestorage.model.User;
 import com.peteryu.filestorage.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,11 +20,13 @@ import static com.peteryu.filestorage.constant.ConsMsg.*;
 @RequestMapping("/signup")
 public class SignupController {
 
+    @Autowired
     private UserService userService;
 
-    public SignupController(UserService userService) {
-        this.userService = userService;
-    }
+//    @Autowired
+//    public SignupController(UserService userService) {
+//        this.userService = userService;
+//    }
 
     @GetMapping
     public String getSignupPage(@ModelAttribute("User") User user, Model model){
@@ -33,7 +36,7 @@ public class SignupController {
     }
 
     @PostMapping
-    public String postDealer(@Valid @ModelAttribute("User") User user, Model model,
+    public String postDealer(@ModelAttribute("User") User user, Model model,
                              RedirectAttributes redirectAttributes){
 
 //        if (bindingResult.hasErrors()) {

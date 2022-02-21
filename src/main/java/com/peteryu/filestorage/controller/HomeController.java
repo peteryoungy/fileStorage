@@ -3,6 +3,7 @@ package com.peteryu.filestorage.controller;
 import com.peteryu.filestorage.model.File;
 import com.peteryu.filestorage.service.FileService;
 import com.peteryu.filestorage.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +17,15 @@ import java.util.List;
 @RequestMapping("/home")
 public class HomeController {
 
+    @Autowired
     private FileService fileService;
+    @Autowired
     private UserService userService;
 
-    public HomeController(FileService fileService, UserService userService) {
-        this.fileService = fileService;
-        this.userService = userService;
-    }
+//    public HomeController(FileService fileService, UserService userService) {
+//        this.fileService = fileService;
+//        this.userService = userService;
+//    }
 
     @GetMapping
     public String getHome(Authentication authentication, Model model){

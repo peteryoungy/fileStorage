@@ -3,6 +3,7 @@ package com.peteryu.filestorage.controller;
 import com.peteryu.filestorage.model.File;
 import com.peteryu.filestorage.service.FileService;
 import com.peteryu.filestorage.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +26,15 @@ import static com.peteryu.filestorage.constant.ConsMsg.*;
 @Controller
 public class FileController {
 
-    FileService fileService;
-    UserService userService;
+    @Autowired
+    private FileService fileService;
+    @Autowired
+    private UserService userService;
 
-    public FileController(FileService fileService, UserService userService) {
-        this.fileService = fileService;
-        this.userService = userService;
-    }
+//    public FileController(FileService fileService, UserService userService) {
+//        this.fileService = fileService;
+//        this.userService = userService;
+//    }
 
     @PostMapping("/home/fileupload")
     public String uploadFile(@RequestParam("uploadedFile")MultipartFile multipartFile,
